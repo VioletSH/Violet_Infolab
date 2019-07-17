@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">    
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>infolab</title>
 
     <script src="./js/vendors/aframe.min.js"></script>
@@ -17,19 +17,20 @@
 </head>
 
 <body>
-    <a-scene stats embedded
-        arjs='sourceType: webcam; detectionMode: mono; patternRatio:0.9 maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180'>
-
+    <a-scene embedded
+        arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono; patternRatio:0.9 maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180'>
+        <a-assets>
+            <a-asset-item id="violet" src="./assets/glb/violet-infolab.glb"></a-asset-item>
+            <audio id="audio" src="./assets/audio/violet-infolab.mp3"></audio>
+        </a-assets>
         <!-- define the object which gonna be put on this marker  -->
         <a-marker type='pattern' url='./assets/img/markers/infolab.patt'>
-            <a-box position='0 0.5 0' material='opacity: 0.5; side: double; color: yellow'>
-                <a-torus-knot radius='0.26' radius-tubular='0.05'
-                    animation="property: rotation; to:360 0 0; dur: 5000; easing: linear; loop: true">
-                </a-torus-knot>
-            </a-box>
+            <a-sound src="#audio"></a-sound>
+            <a-entity gltf-model="#violet" animation-mixer></a-entity>
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
