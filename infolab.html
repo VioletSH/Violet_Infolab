@@ -17,12 +17,12 @@
 </head>
 
 <body>
-    <a-scene embedded
+    <a-scene embedded  renderer="gammaOutput: true"
         arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono; patternRatio:0.9 maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180'>
         <a-assets>
             <a-asset-item id="violet" src="./assets/glb/violet-infolab.glb"></a-asset-item>
             <audio id="audio" src="./assets/audio/violet-infolab.mp3"></audio>
-        </a-assets>
+        </a-assets> 
         <!-- define the object which gonna be put on this marker  -->
         <a-marker type='pattern' url='./assets/img/markers/infolab.patt'>
             <a-sound src="#audio"></a-sound>
